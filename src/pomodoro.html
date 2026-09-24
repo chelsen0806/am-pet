@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self';" />
+  <title>AM Pet 番茄钟</title>
+  <link rel="stylesheet" href="pomodoro.css" />
+</head>
+<body data-phase="focus">
+  <main class="card">
+    <header class="titlebar">
+      <div>
+        <p class="eyebrow">AM PET</p>
+        <h1>番茄钟</h1>
+      </div>
+      <button id="close" class="icon-button" type="button" aria-label="收起番茄钟">×</button>
+    </header>
+
+    <section class="timer-section">
+      <div id="timer-ring" class="timer-ring">
+        <div class="ring-inner">
+          <span id="phase" class="phase">专注</span>
+          <strong id="time" class="time">25:00</strong>
+          <span id="rounds" class="rounds">已完成 0 轮</span>
+        </div>
+      </div>
+      <p id="status" class="status">准备好后开始一轮专注</p>
+    </section>
+
+    <div class="presets" aria-label="计时设置">
+      <span><b>专注</b><em>25 分钟</em></span>
+      <span><b>休息</b><em>5 分钟</em></span>
+    </div>
+
+    <div class="controls">
+      <button id="primary" class="primary" type="button">开始</button>
+      <button id="reset" class="secondary" type="button">重置</button>
+      <button id="skip" class="secondary" type="button">跳过</button>
+    </div>
+
+    <footer>阶段结束后自动切换，并发送系统通知</footer>
+  </main>
+  <script src="pomodoro.js"></script>
+</body>
+</html>

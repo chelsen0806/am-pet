@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self';" />
+  <title>AM Pet 搜索与 AI</title>
+  <link rel="stylesheet" href="search.css" />
+</head>
+<body>
+  <main class="search-panel">
+    <div class="toolbar">
+      <div class="mode-tabs" role="tablist" aria-label="功能模式">
+        <button id="mode-search" class="mode-tab active" type="button" role="tab" aria-selected="true">搜索</button>
+        <button id="mode-translate" class="mode-tab" type="button" role="tab" aria-selected="false">翻译</button>
+        <button id="mode-ai" class="mode-tab" type="button" role="tab" aria-selected="false">AI</button>
+      </div>
+      <span class="toolbar-hint">双击小猫或快捷键唤出</span>
+    </div>
+
+    <form id="search-form" class="action-row">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input id="query" type="text" maxlength="500" placeholder="搜索或输入网址..." autocomplete="off" spellcheck="false" />
+      <select id="engine" aria-label="搜索引擎" title="选择搜索引擎"></select>
+      <button id="submit" type="submit">搜索</button>
+    </form>
+
+    <form id="translation-form" class="action-row hidden">
+      <span class="search-icon translate-icon" aria-hidden="true">文</span>
+      <input id="translation-text" type="text" maxlength="500" placeholder="输入或读取要翻译的文字..." autocomplete="off" spellcheck="false" />
+      <select id="translation-source" aria-label="源语言" title="源语言"></select>
+      <span class="language-arrow" aria-hidden="true">→</span>
+      <select id="translation-target" aria-label="目标语言" title="目标语言"></select>
+      <button id="translate-submit" type="submit">翻译</button>
+    </form>
+
+    <section id="ai-panel" class="ai-panel hidden" aria-label="AI 对话">
+      <div class="ai-head">
+        <div class="ai-title">
+          <strong>AI 对话</strong>
+          <span id="ai-config-hint">正在读取配置...</span>
+        </div>
+        <button id="ai-settings" class="secondary-button" type="button">配置</button>
+      </div>
+      <div id="ai-messages" class="ai-messages" aria-live="polite"></div>
+      <form id="ai-form" class="ai-composer">
+        <textarea id="ai-input" rows="3" maxlength="8000" placeholder="问小猫任何问题..."></textarea>
+        <div class="ai-actions">
+          <span class="ai-note">Enter 发送 · Shift + Enter 换行</span>
+          <button id="ai-clear" class="secondary-button" type="button">清空</button>
+          <button id="ai-send" type="submit">发送</button>
+        </div>
+      </form>
+      <p class="privacy-note">请求会发送到你配置的 AI 服务商。费用、隐私和数据处理规则由该服务商决定；本版不保存聊天历史。</p>
+    </section>
+
+    <div class="quick-row">
+      <button id="clipboard" class="secondary-button" type="button">读剪贴板</button>
+      <span id="status">Enter 搜索 · Esc 关闭</span>
+      <span id="shortcut" class="shortcut">Ctrl + Shift + Space</span>
+    </div>
+  </main>
+  <script src="search.js"></script>
+</body>
+</html>

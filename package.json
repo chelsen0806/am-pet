@@ -1,0 +1,68 @@
+{
+  "name": "am-pet",
+  "version": "0.7.0",
+  "description": "Cross-platform desktop pet for macOS, Windows, and Linux.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "preprocess": "bash scripts/preprocess-assets.sh",
+    "manifest": "node scripts/rebuild-manifest.js",
+    "dist:mac": "electron-builder --mac dmg --arm64 --x64",
+    "dist:win": "electron-builder --win nsis portable --x64",
+    "dist:linux": "electron-builder --linux AppImage deb --x64",
+    "test:ai": "node scripts/test-ai-provider.js"
+  },
+  "keywords": [
+    "desktop-pet",
+    "electron",
+    "transparent-window"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
+  "build": {
+    "appId": "com.anotherme.ampet",
+    "productName": "AM Pet",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.entertainment"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    }
+  },
+  "devDependencies": {
+    "electron": ">=26.0.0",
+    "electron-builder": "^26.15.3"
+  }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self';" />
+  <title>AM Pet 设置</title>
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body>
+  <main class="panel">
+    <header class="header">
+      <div>
+        <p class="eyebrow">AM PET</p>
+        <h1>桌宠设置</h1>
+      </div>
+      <span class="badge">自动保存</span>
+    </header>
+
+    <section class="settings-list">
+      <div class="setting-row">
+        <div class="setting-label">
+          <strong>宠物大小</strong>
+          <span>调整窗口和角色的整体尺寸</span>
+        </div>
+        <select id="scale">
+          <option value="0.75">75%</option>
+          <option value="1">100%</option>
+          <option value="1.25">125%</option>
+          <option value="1.5">150%</option>
+        </select>
+      </div>
+
+      <div class="setting-row vertical">
+        <div class="setting-label">
+          <strong>透明度</strong>
+          <span>让角色更融入桌面环境</span>
+        </div>
+        <div class="range-line">
+          <input id="opacity" type="range" min="20" max="100" step="5" value="100" />
+          <output id="opacity-value">100%</output>
+        </div>
+      </div>
+
+      <div class="setting-row vertical">
+        <div class="setting-label">
+          <strong>动画速度</strong>
+          <span>影响待机和交互动画的播放速度</span>
+        </div>
+        <div class="range-line">
+          <input id="animation-speed" type="range" min="25" max="200" step="5" value="100" />
+          <output id="animation-speed-value">100%</output>
+        </div>
+      </div>
+
+      <div class="setting-row vertical shortcut-row">
+        <div class="setting-label">
+          <strong>搜索快捷键</strong>
+          <span>单击快捷键后直接按下新组合；Esc 取消</span>
+        </div>
+        <div class="shortcut-line">
+          <button id="shortcut-capture" class="shortcut-capture" type="button">Ctrl + Shift + Space</button>
+          <button id="shortcut-reset" class="secondary-button" type="button">恢复默认</button>
+        </div>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-label">
+          <strong>提醒中心</strong>
+          <span>管理喝水、久坐、护眼和久未陪小猫提醒</span>
+        </div>
+        <button id="open-reminders" class="secondary-button" type="button">打开</button>
+      </div>
+
+      <label class="toggle-row">
+        <span>
+          <strong>始终置顶</strong>
+          <small>让小猫显示在普通窗口上方</small>
+        </span>
+        <input id="always-on-top" type="checkbox" />
+      </label>
+
+      <label class="toggle-row">
+        <span>
+          <strong>锁定位置</strong>
+          <small>锁定后不能拖动，点击互动仍然保留</small>
+        </span>
+        <input id="locked-position" type="checkbox" />
+      </label>
+
+      <label class="toggle-row warning">
+        <span>
+          <strong>点击穿透</strong>
+          <small>开启后小猫不响应鼠标，请从托盘菜单或本面板关闭</small>
+        </span>
+        <input id="click-through" type="checkbox" />
+      </label>
+      <div id="ai-settings-card" class="ai-settings-card">
+        <div class="ai-card-head">
+          <div class="setting-label">
+            <strong>AI 对话</strong>
+            <span>支持 OpenAI、DeepSeek、OpenRouter、Ollama 等兼容接口</span>
+          </div>
+          <label class="mini-toggle">
+            <input id="ai-enabled" type="checkbox" />
+            <span>启用</span>
+          </label>
+        </div>
+
+        <div class="ai-field-grid">
+          <label class="ai-field">
+            <span>Base URL</span>
+            <input id="ai-base-url" type="url" maxlength="500" placeholder="https://api.openai.com/v1" spellcheck="false" />
+          </label>
+          <label class="ai-field">
+            <span>模型名</span>
+            <input id="ai-model" type="text" maxlength="200" placeholder="gpt-4o-mini" spellcheck="false" />
+          </label>
+          <label class="ai-field wide">
+            <span>API Key</span>
+            <div class="ai-key-line">
+              <input id="ai-api-key" type="password" maxlength="500" placeholder="输入 API Key" autocomplete="off" />
+              <button id="ai-key-save" class="secondary-button" type="button">保存</button>
+              <button id="ai-key-clear" class="secondary-button danger-button" type="button">清除</button>
+            </div>
+            <small id="ai-key-status">尚未保存 API Key</small>
+          </label>
+          <label class="ai-field wide">
+            <span>System Prompt</span>
+            <textarea id="ai-system-prompt" rows="3" maxlength="4000" placeholder="定义小猫的回答风格"></textarea>
+          </label>
+          <label class="ai-field">
+            <span>Temperature</span>
+            <input id="ai-temperature" type="number" min="0" max="2" step="0.1" value="0.7" />
+          </label>
+          <label class="ai-field">
+            <span>最大输出 tokens</span>
+            <input id="ai-max-tokens" type="number" min="1" max="8192" step="1" value="1024" />
+          </label>
+        </div>
+
+        <div class="ai-card-actions">
+          <button id="ai-test" class="secondary-button" type="button">测试连接</button>
+          <button id="ai-open-chat" class="secondary-button" type="button">打开 AI 对话</button>
+          <span id="ai-test-result" class="ai-test-result"></span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span id="status">设置会自动保存</span>
+      <button id="close" type="button">关闭</button>
+    </footer>
+  </main>
+  <script src="settings.js"></script>
+</body>
+</html>

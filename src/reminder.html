@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self';" />
+  <title>AM Pet 提醒中心</title>
+  <link rel="stylesheet" href="reminder.css" />
+</head>
+<body>
+  <main class="panel">
+    <header class="header">
+      <div>
+        <p class="eyebrow">AM PET</p>
+        <h1>提醒中心</h1>
+        <p class="header-note">小猫会在后台计时，关闭这个面板后提醒仍然有效。</p>
+      </div>
+      <button id="close" class="icon-button" type="button" aria-label="关闭">×</button>
+    </header>
+
+    <section id="reminder-list" class="reminder-list" aria-label="提醒设置"></section>
+
+    <footer class="footer">
+      <span id="status">设置会自动保存</span>
+      <button id="reset" class="secondary-button" type="button">恢复默认</button>
+    </footer>
+  </main>
+  <script src="reminder.js"></script>
+</body>
+</html>
