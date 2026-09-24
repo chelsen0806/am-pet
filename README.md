@@ -295,8 +295,8 @@ npm run dist:linux   # build Linux package
 - On Linux, use an X11 or Xwayland session for best results.
 - On macOS, the first launch of a downloaded build may require right-clicking the app and choosing Open.
 
-## License and Permissions
+## License
 
-This project is source-available, not open source. You may view the source and run an unmodified copy for personal, non-commercial use only. Modification, derivative works, redistribution, commercial use, competing implementations, and incorporation into another product or service are not permitted without prior written permission. All rights reserved. See [LICENSE](LICENSE).
+This project is open source under the [MIT License](LICENSE). You may use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, provided that the copyright and permission notice are included.
 
-本项目属于“源码可见”项目，不是开源项目。仅允许查看源码，以及以个人、非商业目的运行未修改的版本；未经书面许可，不得修改、制作衍生版本、再分发、商用、开发竞品，或将其用于其他产品或服务。保留所有权利，详情见 [LICENSE](LICENSE)。
+本项目采用 [MIT 许可证](LICENSE)。你可以使用、复制、修改、合并、发布、分发、再授权和/或出售副本，只需保留版权声明和许可声明。
